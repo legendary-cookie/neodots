@@ -4,3 +4,5 @@ vim.api.nvim_set_keymap("", "<C-G>", ":FloatermNew --height=100 --width=100 --au
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap=true, silent=true })
 
 vim.api.nvim_set_keymap("", "<F1>", ":terminal<Enter>", {noremap=true, silent=true})
+
+vim.api.nvim_set_keymap("", "<F2>", ":Glow<Enter>", {noremap=true, silent=true})

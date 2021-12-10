@@ -4,16 +4,32 @@ return require('packer').startup({function()
 		event = "VimEnter"
 	}
 
+	use {
+		"ellisonleao/glow.nvim",
+		config = function()
+			vim.g.glow_border = "rounded"
+			vim.g.glow_width = 120
+		end
+	}
+
+	use {
+		"AckslD/nvim-neoclip.lua",
+		requires = {'tami5/sqlite.lua', module = 'sqlite'},
+		config = function()
+			require('neoclip').setup()
+		end,
+	}
+
 	use 'voldikss/vim-floaterm'
 
 	use { "neovim/nvim-lspconfig" }
-	
+
 	use {
-	            "williamboman/nvim-lsp-installer",
-	            config = function ()
-	                require "plugins.configs.lspconfig"
-	            end
-	        }
+		"williamboman/nvim-lsp-installer",
+		config = function ()
+			require "plugins.configs.lspconfig"
+		end
+	}
 
 	use {
 		'stevearc/dressing.nvim',
@@ -45,52 +61,44 @@ return require('packer').startup({function()
 		end
 	}
 
-	 use {
-            "hrsh7th/cmp-nvim-lsp",
-            after = "nvim-cmp"
-        }
-
-        use {
-            "hrsh7th/cmp-nvim-lua",
-            after = "cmp-nvim-lsp"
-        }
-
-        use {
-            "hrsh7th/cmp-buffer",
-            after = "cmp-nvim-lua"
-        }
-
-        use {
-            "hrsh7th/cmp-path",
-            after = "cmp-buffer"
-        }
-
-        use {
-            "onsails/lspkind-nvim"
-        }
-
-        -- Git
-        use {
-            "lewis6991/gitsigns.nvim",
-            config = function()
-                require("gitsigns").setup{}
-            end
-        }
+	use {
+		"hrsh7th/cmp-nvim-lsp",
+		after = "nvim-cmp"
+	}
 
 	use {
-		'matbme/JABS.nvim',
+		"hrsh7th/cmp-nvim-lua",
+		after = "cmp-nvim-lsp"
+	}
+
+	use {
+		"hrsh7th/cmp-buffer",
+		after = "cmp-nvim-lua"
+	}
+
+	use {
+		"hrsh7th/cmp-path",
+		after = "cmp-buffer"
+	}
+
+	use {
+		"onsails/lspkind-nvim"
+	}
+
+	-- Git
+	use {
+		"lewis6991/gitsigns.nvim",
 		config = function()
-			require'plugins.configs.jabs'
+			require("gitsigns").setup{}
 		end
 	}
 
-	
-        use {
-            "glepnir/dashboard-nvim",
-            config = function()
-                require "plugins.configs.dashboard"
-            end
-        }
+	use {
+		"glepnir/dashboard-nvim",
+		config = function()
+			require "plugins.configs.dashboard"
+		end
+	}
 
 	use {
 		'sudormrfbin/cheatsheet.nvim',
