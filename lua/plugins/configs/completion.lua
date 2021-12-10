@@ -27,5 +27,6 @@ cmp.setup {
         { name = "buffer" },
         { name = "nvim_lua" },
         { name = "path" },
+	{ name = "crates" },
    },
 }

@@ -4,6 +4,10 @@ return require('packer').startup({function()
 		event = "VimEnter"
 	}
 
+	use "kdheepak/lazygit.nvim"
+
+	use "seandewar/nvimesweeper"
+
 	use {
 		"ellisonleao/glow.nvim",
 		config = function()
@@ -167,6 +171,7 @@ return require('packer').startup({function()
 end,
 
 config = {
+	compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua',
 	display = {
 		-- Create a floating window for packer commands
 		open_fn = require('packer.util').float,
