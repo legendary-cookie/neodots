@@ -16,77 +16,13 @@ return require('packer').startup({function()
 		end
 	}
 
-	use {
-		"AckslD/nvim-neoclip.lua",
-		requires = {'tami5/sqlite.lua', module = 'sqlite'},
-		config = function()
-			require('neoclip').setup()
-		end,
-	}
-
 	use 'voldikss/vim-floaterm'
-
-	use { "neovim/nvim-lspconfig" }
-
-	use {
-		"williamboman/nvim-lsp-installer",
-		config = function ()
-			require "plugins.configs.lspconfig"
-		end
-	}
 
 	use {
 		'stevearc/dressing.nvim',
 		config = function()
 			require'plugins.configs.dressing'
 		end
-	}
-
-	use {
-		"rafamadriz/friendly-snippets",
-		event = "InsertEnter"
-	}
-
-	use {
-		"hrsh7th/nvim-cmp",
-		config = function ()
-			require'plugins.configs.completion'
-		end,
-		after = "friendly-snippets"
-	}
-
-	use {
-		"L3MON4D3/LuaSnip",
-		wants = "friendly-snippets",
-		after = "nvim-cmp",
-		config = function ()
-			require("luasnip/loaders/from_vscode").load { path = "~/.local/share/nvim/site/pack/packer/opt/friendly-snippets" }
-			require("luasnip/loaders/from_vscode").load()
-		end
-	}
-
-	use {
-		"hrsh7th/cmp-nvim-lsp",
-		after = "nvim-cmp"
-	}
-
-	use {
-		"hrsh7th/cmp-nvim-lua",
-		after = "cmp-nvim-lsp"
-	}
-
-	use {
-		"hrsh7th/cmp-buffer",
-		after = "cmp-nvim-lua"
-	}
-
-	use {
-		"hrsh7th/cmp-path",
-		after = "cmp-buffer"
-	}
-
-	use {
-		"onsails/lspkind-nvim"
 	}
 
 	-- Git
@@ -160,18 +96,10 @@ return require('packer').startup({function()
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		config = function()
-			require'plugins.configs.nvim-treesitter'
-		end, 
-		run = ':TSUpdate'
-	}
 	require'plugins.configs.keybinds'
 end,
 
 config = {
-	compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua',
 	display = {
 		-- Create a floating window for packer commands
 		open_fn = require('packer.util').float,
