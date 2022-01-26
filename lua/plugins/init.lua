@@ -4,6 +4,8 @@ return require('packer').startup({function()
 		event = "VimEnter"
 	}
 
+	use "alker0/chezmoi.vim"
+
 	use "kdheepak/lazygit.nvim"
 
 	use "seandewar/nvimesweeper"
